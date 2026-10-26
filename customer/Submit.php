@@ -17,6 +17,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
 $name = trim((string) ($_POST['name'] ?? ''));
 $email = trim((string) ($_POST['email'] ?? ''));
 $no_hp = trim((string) ($_POST['no_hp'] ?? ''));
+$ttl = trim ((string) ($_POST['ttl'] ?? ''));
+$nik = trim ((string) ($_POST['nik'] ?? ''));
+$kota = trim ((string) ($_POST['kota'] ?? ''));
+$kabupaten = trim ((string) ($_POST['kabupaten'] ?? ''));
+$alamat = trim ((string) ($_POST['alamat'] ?? ''));
+
 
 
 // Validasi server tetap wajib walaupun sudah ada JavaScript di browser.
@@ -26,13 +32,35 @@ if ($name === '') {
     $errors[] = 'Nama customer wajib diisi.';
 }
 
+if ($ttl === '') {
+    $errors[] = 'Tempat Tanggal Lahir wajib diisi.';
+}
+
+if ($nik === '') {
+    $errors[] = 'Nik wajib diisi.';
+}
+
 if ($email === '' || filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
     $errors[] = 'Email wajib diisi dengan format yang valid.';
 }
 
-if ($no_hp === '' || filter_var($no_hp, FILTER_VALIDATE_EMAIL) === false) {
-    $errors[] = 'no hp  wajib diisi dengan format yang valid.';
+if ($no_hp === '') {
+    $errors[] = 'Nomor Hp wajib diisi dengan format yang valid.';
 }
+
+if ($kota === '') {
+    $errors[] = 'Kota wajib diisi dengan format yang valid.';
+}
+
+if ($kabupaten === '') {
+    $errors[] = 'Kabupaten wajib diisi dengan format yang valid.';
+}
+
+if ($alamat === '') {
+    $errors[] = 'Kabupaten wajib diisi dengan format yang valid.';
+}
+
+
 
 if ($errors !== []) {
     http_response_code(422);
@@ -67,11 +95,26 @@ if ($errors !== []) {
 }
 
 // Buat object dari class yang sudah dikenal sejak Session 14.
-$customer = new Customer($name, $email, $no_hp);
+$customer = new Customer(
+                            $name, 
+                            $email,
+                            $no_hp, 
+                            $ttl,
+                            $nik, 
+                            $kota, 
+                            $kabupaten,
+                            $alamat
+                        );
 
 // Simpan sementara untuk menunjukkan session lintas-request.
 $_SESSION['customer_name'] = $customer->getName();
+$_SESSION['customer_ttl'] = $customer->getTtl();
 $_SESSION['customer_email'] = $customer->getEmail();
+$_SESSION['customer_no_hp'] = $customer->getNoHp();
+$_SESSION['customer_nik'] = $customer->getNik();
+$_SESSION['customer_kota'] = $customer->getKota();
+$_SESSION['customer_kabupaten'] = $customer->getKabupaten();
+$_SESSION['customer_alamat'] = $customer->getAlamat();
 
 session_write_close();
 

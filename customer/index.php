@@ -52,17 +52,38 @@
         <p class="muted">Tanda <span class="required">*</span> menunjukkan field wajib.</p>
 
         <form id="customerForm" action="submit.php" method="POST" novalidate>
-            <label for="name">Nama customer <span class="required">*</span></label>
+            <label for="name">Nama customer <span class="required"> *</span></label>
             <input type="text" id="name" name="name" autocomplete="name" placeholder="Contoh: Nadia Putri" required>
             <p id="nameFeedback" class="feedback" aria-live="polite"></p>
 
-            <label for="email">Email <span class="required">*</span></label>
+            <label for="ttl">Tempat Tanggal Lahir <span class="required">*</span></label>
+            <input type="text" id="ttl" name="ttl" autocomplete="ttl" placeholder="Contoh: Tangerang, 26-10-2026" required>
+            <p id="ttlFeedback" class="feedback" aria-live="polite"></p>
+
+            <label for="nik">Nik <span class="required"> *</span></label>
+            <input type="nik" id="nik" name="nik" autocomplete="nik" placeholder="Contoh: 33322211167" required>
+            <p id="nikFeedback" class="feedback" aria-live="polite"></p>
+
+            <label for="email">Email <span class="required"> *</span></label>
             <input type="email" id="email" name="email" autocomplete="email" placeholder="nadia@example.com" required>
             <p id="emailFeedback" class="feedback" aria-live="polite"></p>
 
-             <label for="no_hp"> No Hp <span class="required">*</span></label>
-            <input type="text" id="no_hp" name="no_hp" autocomplete="no_hp" placeholder="contoh : 008576768767" required>
+             <label for="no_hp">No Hp <span class="required"> *</span></label>
+            <input type="text" id="no_hp" name="no_hp" autocomplete="no_hp" placeholder="contoh : 08576768767" required>
             <p id="no_hpFeedback" class="feedback" aria-live="polite"></p>
+
+            <label for="kota">Kota <span class="required"> *</span></label>
+            <input type="text" id="kota" name="kota" autocomplete="kota" placeholder="contoh : Jakarta" required>
+            <p id="kotaFeedback" class="feedback" aria-live="polite"></p>
+
+            <label for="kabupaten">Kabupaten<span class="required"> *</span></label>
+            <input type="text" id="kabupaten" name="kabupaten" autocomplete="kabupaten" placeholder="contoh : Banten" required>
+            <p id="kabupatenFeedback" class="feedback" aria-live="polite"></p>
+
+             <label for="alamat">Alamat<span class="required"> *</span></label>
+            <input type="text" id="alamat" name="alamat" autocomplete="alamat" placeholder="contoh : Tangerang Banten" required>
+            <p id="alamatFeedback" class="feedback" aria-live="polite"></p>
+
 
             <div class="row">
                 <button type="submit" class="primary">Submit Customer</button>

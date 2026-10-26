@@ -4,9 +4,24 @@ session_start();
 
 $name = $_SESSION['customer_name'] ?? null;
 $email = $_SESSION['customer_email'] ?? null;
+$no_hp = $_SESSION['customer_no_hp'] ?? null;
+$ttl = $_SESSION['customer_ttl'] ?? null;
+$nik = $_SESSION['customer_nik'] ?? null;
+$kota = $_SESSION['customer_kota'] ?? null;
+$kabupaten = $_SESSION['customer_kabupaten'] ?? null;
+$alamat = $_SESSION['customer_alamat'] ?? null;
 
 // Data hanya sementara; hapus setelah ditampilkan satu kali.
-unset($_SESSION['customer_name'], $_SESSION['customer_email']);
+unset(
+        $_SESSION['customer_name'],
+        $_SESSION['customer_email'],
+        $_SESSION['customer_no_hp'],
+        $_SESSION['customer_ttl'],
+        $_SESSION['customer_nik'], 
+        $_SESSION['customer_kota'],
+         $_SESSION['customer_alamat']
+
+    );
 
 function e(string $value): string
 {
@@ -28,10 +43,16 @@ function e(string $value): string
 <body>
     <main class="card">
         <h1>200 — Halaman Berhasil Dimuat</h1>
-        <?php if ($name !== null && $email !== null): ?>
+        <?php if ($name !== null && $email !== null && $ttl !== null): ?>
             <p>JavaScript mengizinkan submit dan server juga menerima data yang valid.</p>
             <p><strong>Nama:</strong> <?= e((string) $name) ?></p>
+            <p><strong>Tempat Tanggal Lahir:</strong> <?= e((string) $ttl) ?></p>
+            <p><strong>Nik:</strong> <?= e((string) $nik) ?></p>
             <p><strong>Email:</strong> <?= e((string) $email) ?></p>
+            <p><strong>No Hp:</strong> <?= e((string) $no_hp) ?></p>
+            <p><strong>Kota:</strong> <?= e((string) $kota) ?></p>
+            <p><strong>Kabupaten:</strong> <?= e((string) $kabupaten) ?></p>
+            <p><strong>Alamat:</strong> <?= e((string) $alamat) ?></p>
             <p class="muted">Data ini disimpan sementara di session, bukan database.</p>
         <?php else: ?>
             <p>Belum ada data customer dari pengiriman terbaru.</p>
