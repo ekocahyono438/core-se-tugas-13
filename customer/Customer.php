@@ -8,6 +8,9 @@ class Customer{
     private string $kota;
     private string $kabupaten;
     private string $alamat;
+    private string $provinsi;
+    private string $kode_pos;
+    private string $nama_ortu;
 
     
     public function __construct(
@@ -18,7 +21,11 @@ class Customer{
         string $nik,
         string $kota,
         string $kabupaten,
-        string $alamat
+        string $alamat,
+        string $provinsi,
+        string $kode_pos,
+        string $nama_ortu,
+
     ){
         $this->name = trim ($name);
         $this->email = trim ($email);
@@ -28,6 +35,9 @@ class Customer{
         $this->kota =trim ($kota);
         $this->kabupaten = trim ($kabupaten);
         $this->alamat = trim ($alamat);
+        $this->provinsi =trim ($provinsi);
+        $this->kode_pos =trim ($kode_pos);
+        $this->nama_ortu =trim ($nama_ortu);
     
 }
 
@@ -57,6 +67,16 @@ class Customer{
         }
          public function getAlamat(){
             return $this->alamat;
+        }
+        public function getProvinsi(){
+            return $this->provinsi;
+        }
+
+         public function getKodePos(){
+            return $this->kode_pos; 
+        }
+        public function getNamaOrangTua(){
+            return $this->nama_ortu;
         }
 
 }

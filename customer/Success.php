@@ -10,6 +10,10 @@ $nik = $_SESSION['customer_nik'] ?? null;
 $kota = $_SESSION['customer_kota'] ?? null;
 $kabupaten = $_SESSION['customer_kabupaten'] ?? null;
 $alamat = $_SESSION['customer_alamat'] ?? null;
+$provinsi = $_SESSION['customer_provinsi'] ?? null;
+$kode_pos = $_SESSION['customer_kode_pos'] ?? null;
+$nama_ortu = $_SESSION['customer_nama_ortu'] ?? null;
+
 
 // Data hanya sementara; hapus setelah ditampilkan satu kali.
 unset(
@@ -19,7 +23,10 @@ unset(
         $_SESSION['customer_ttl'],
         $_SESSION['customer_nik'], 
         $_SESSION['customer_kota'],
-         $_SESSION['customer_alamat']
+        $_SESSION['customer_alamat'],
+        $_SESSION['customer_provinsi'],
+        $_SESSION['customer_kode_pos'],
+        $_SESSION['customer_nama_ortu']
 
     );
 
@@ -43,7 +50,19 @@ function e(string $value): string
 <body>
     <main class="card">
         <h1>200 — Halaman Berhasil Dimuat</h1>
-        <?php if ($name !== null && $email !== null && $ttl !== null): ?>
+        <?php if (
+        $name !== null 
+        && $email !== null 
+        && $ttl !== null 
+        && $nik !== null 
+        && $no_hp !== null
+        && $kota !== null
+        && $kabupaten !== null
+        && $alamat !== null
+        && $provinsi !== null
+        && $kode_pos !== null
+        && $nama_ortu !== null
+         ): ?>
             <p>JavaScript mengizinkan submit dan server juga menerima data yang valid.</p>
             <p><strong>Nama:</strong> <?= e((string) $name) ?></p>
             <p><strong>Tempat Tanggal Lahir:</strong> <?= e((string) $ttl) ?></p>
@@ -53,6 +72,9 @@ function e(string $value): string
             <p><strong>Kota:</strong> <?= e((string) $kota) ?></p>
             <p><strong>Kabupaten:</strong> <?= e((string) $kabupaten) ?></p>
             <p><strong>Alamat:</strong> <?= e((string) $alamat) ?></p>
+            <p><strong>Provinsi:</strong> <?= e((string) $provinsi) ?></p>
+            <p><strong>Kode Pos:</strong> <?= e((string) $kode_pos) ?></p>
+            <p><strong>Nama Orang Tua:</strong> <?= e((string) $nama_ortu) ?></p>
             <p class="muted">Data ini disimpan sementara di session, bukan database.</p>
         <?php else: ?>
             <p>Belum ada data customer dari pengiriman terbaru.</p>

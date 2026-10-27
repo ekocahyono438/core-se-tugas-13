@@ -28,6 +28,16 @@ const kabupatenFeedback = document.querySelector("#kabupatenFeedback");
 const alamat = document.querySelector("#alamat");
 const alamatFeedback = document.querySelector("#alamatFeedback");
 
+const provinsi = document.querySelector("#provinsi");
+const provinsiFeedback = document.querySelector("#provinsiFeedback");
+
+const kode_pos = document.querySelector("#kode_pos");
+const kode_posFeedback = document.querySelector("#kode_posFeedback");
+
+const nama_ortu = document.querySelector("#nama_kartu");
+const nama_ortuFeedback = document.querySelector("#nama_ortuFeedback");
+
+
 const formMessege = document.querySelector("formMessege");
 
 toggleButton.addEventListener("click", function(){
@@ -73,7 +83,6 @@ emailInput.addEventListener("input", function(){
         emailFeedback.textContent = "Format email Valid";
     }
 
-    
 });
 
 no_hp.addEventListener("input", function(){
@@ -112,6 +121,34 @@ alamat.addEventListener("input", function(){
     }
 });
 
+provinsi.addEventListener("input", function(){
+    if(alamat.value.trim()===""){
+        provinsiFeedback.textContent = "Provinsi Belum diisi";
+
+    }else{
+        provinsiFeedback.textContent = "Format Alamat Valid";
+    }
+});
+
+kode_pos.addEventListener("input", function(){
+    if(kode_pos.trim()===""){
+        kode_posFeedback.textContent = "Alamat Belum diisi";
+
+    }else{
+       kode_posFeedback.textContent = "Format Alamat Valid";
+    }
+});
+
+nama_ortu.addEventListener("input", function(){
+    if(nama_ortu.trim()===""){
+        nama_ortuFeedback.textContent = "Nama Orang Tua Belum diisi";
+
+    }else{
+       kode_posFeedback.textContent = "Format Alamat Valid";
+    }
+});
+
+
 
 //waktu Disubmit
 customerForm.addEventListener("submit", function (event) {
@@ -124,6 +161,9 @@ customerForm.addEventListener("submit", function (event) {
     kotaFeedback.textContent ="";
     kabupatenFeedback.textContent ="";
     alamatFeedback.textContent ="";
+    provinsiFeedback.textContent ="";
+    kode_posFeedback.textContent = "";
+    nama_ortuFeedback.textContent = "";
     formMessege.textContent ="";
 
     if (nameInput.value.trim() == ""){
@@ -164,6 +204,21 @@ customerForm.addEventListener("submit", function (event) {
 
     if(alamat.value.trim() == "" ){
         alamat.textContent ="Alamat Wajib Diisi dan Pastikan formatnya Benar";
+        hasError = true;
+    }
+
+     if(provinsi.value.trim() == "" ){
+        provinsi.textContent ="Provinsi Wajib Diisi dan Pastikan formatnya Benar";
+        hasError = true;
+    }
+
+    if(kode_pos.value.trim() == "" ){
+        kode_pos.textContent ="Provinsi Wajib Diisi dan Pastikan formatnya Benar";
+        hasError = true;
+    }
+
+    if(nama_ortu.value.trim() == "" ){
+        nama_ortu.textContent ="Provinsi Wajib Diisi dan Pastikan formatnya Benar";
         hasError = true;
     }
 

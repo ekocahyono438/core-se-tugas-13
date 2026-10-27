@@ -22,6 +22,9 @@ $nik = trim ((string) ($_POST['nik'] ?? ''));
 $kota = trim ((string) ($_POST['kota'] ?? ''));
 $kabupaten = trim ((string) ($_POST['kabupaten'] ?? ''));
 $alamat = trim ((string) ($_POST['alamat'] ?? ''));
+$provinsi =trim ((string)($_POST['provinsi']));
+$kode_pos =trim ((string)($_POST['kode_pos'])); 
+$nama_ortu =trim ((string)($_POST['nama_ortu'])); 
 
 
 
@@ -57,8 +60,25 @@ if ($kabupaten === '') {
 }
 
 if ($alamat === '') {
-    $errors[] = 'Kabupaten wajib diisi dengan format yang valid.';
+    $errors[] = 'Alamat wajib diisi dengan format yang valid.';
+
 }
+
+if ($provinsi === '') {
+    $errors[] = 'Provinsi wajib diisi dengan format yang valid.';
+
+}
+
+if ($kode_pos === '') {
+    $errors[] = 'Kode Pos wajib diisi dengan format yang valid.';
+
+}
+if ($nama_ortu === '') {
+    $errors[] = 'Nama Orang Tua wajib diisi dengan format yang valid.';
+
+}
+
+
 
 
 
@@ -103,7 +123,10 @@ $customer = new Customer(
                             $nik, 
                             $kota, 
                             $kabupaten,
-                            $alamat
+                            $alamat,
+                            $provinsi,
+                            $kode_pos,
+                            $nama_ortu
                         );
 
 // Simpan sementara untuk menunjukkan session lintas-request.
@@ -115,6 +138,11 @@ $_SESSION['customer_nik'] = $customer->getNik();
 $_SESSION['customer_kota'] = $customer->getKota();
 $_SESSION['customer_kabupaten'] = $customer->getKabupaten();
 $_SESSION['customer_alamat'] = $customer->getAlamat();
+$_SESSION['customer_provinsi'] =$customer->getProvinsi();
+$_SESSION['customer_kode_pos'] =$customer->getKodePos();
+$_SESSION['customer_nama_ortu'] =$customer->getNamaOrangTua();
+
+
 
 session_write_close();
 

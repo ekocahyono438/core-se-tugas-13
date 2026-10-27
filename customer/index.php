@@ -68,7 +68,7 @@
             <input type="email" id="email" name="email" autocomplete="email" placeholder="nadia@example.com" required>
             <p id="emailFeedback" class="feedback" aria-live="polite"></p>
 
-             <label for="no_hp">No Hp <span class="required"> *</span></label>
+            <label for="no_hp">No Hp <span class="required"> *</span></label>
             <input type="text" id="no_hp" name="no_hp" autocomplete="no_hp" placeholder="contoh : 08576768767" required>
             <p id="no_hpFeedback" class="feedback" aria-live="polite"></p>
 
@@ -77,12 +77,26 @@
             <p id="kotaFeedback" class="feedback" aria-live="polite"></p>
 
             <label for="kabupaten">Kabupaten<span class="required"> *</span></label>
-            <input type="text" id="kabupaten" name="kabupaten" autocomplete="kabupaten" placeholder="contoh : Banten" required>
+            <input type="text" id="kabupaten" name="kabupaten" autocomplete="kabupaten" placeholder="contoh : Kab.Tangerang" required>
             <p id="kabupatenFeedback" class="feedback" aria-live="polite"></p>
 
-             <label for="alamat">Alamat<span class="required"> *</span></label>
-            <input type="text" id="alamat" name="alamat" autocomplete="alamat" placeholder="contoh : Tangerang Banten" required>
+            <label for="alamat">Alamat<span class="required"> *</span></label>
+            <input type="text" id="alamat" name="alamat" autocomplete="alamat" placeholder="contoh : jln. Asem Tangerang Banten" required>
             <p id="alamatFeedback" class="feedback" aria-live="polite"></p>
+
+            <label for="Provinsi">Provinsi<span class="required"> *</span></label>
+            <input type="text" id="provinsi" name="provinsi" autocomplete="provinsi" placeholder="contoh : Banten" required>
+            <p id="provinsiFeedback" class="feedback" aria-live="polite"></p>
+
+            <label for="kode_pos">Kode Pos<span class="required"> *</span></label>
+            <input type="text" id="kode_pos" name="kode_pos" autocomplete="kode_pos" placeholder="contoh : 125551" required>
+            <p id="kode_posFeedback" class="feedback" aria-live="polite"></p>
+
+            <label for="nama_ortu">Nama Orang Tua<span class="required"> *</span></label>
+            <input type="text" id="nama_ortu" name="nama_ortu" autocomplete="nama_ortu" placeholder="contoh : Dewa Sanjaya" required>
+            <p id="nama_ortuFeedback" class="feedback" aria-live="polite"></p>
+
+
 
 
             <div class="row">
